@@ -20,4 +20,5 @@ from bola import views
 
 urlpatterns = [
     path('bola/',views.index,name='bola'),
+    path('ohboy/',views.ohboy,name='ohboy')
 ]
