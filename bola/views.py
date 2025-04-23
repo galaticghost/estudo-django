@@ -15,6 +15,7 @@ def ohboy(request):
             username = form['username'].value()
             password = form['password'].value()
             us = User(username=username,password=password)
+            us.set_password(us.password)
             us.save()
     form = UserForm()
     return render(request,template_name=('bola/ohboy.html'),context={'form':form})
