@@ -1,11 +1,11 @@
 from django import forms
 from django.forms import ModelForm
-from bola.models import User
+from bola.models import Community
 
-class XinaForm(forms.Form):
-    nome = forms.CharField(label='Su nombre',max_length=100)
-
-class UserForm(ModelForm):
+class CommunityForm(ModelForm):
     class Meta:
-        model = User
-        fields = ["username","password"]
+        model = Community
+        fields = ('nome','sobre')
+        widgets = {
+            'sobre': forms.Textarea(),
+        }

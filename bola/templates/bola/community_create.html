@@ -1,0 +1,13 @@
+{% extends "bola/base.html" %}
+
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %} {# Token pra evitar ataques csrf #}
+    {{ form.nome.label }}
+    {{ form.nome }}
+
+    {{ form.sobre.label }}
+    {{ form.sobre }}
+    <button type="submit">submit</button>
+</form>
+{% endblock %}

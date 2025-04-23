@@ -19,6 +19,8 @@ from django.urls import path
 from bola import views
 
 urlpatterns = [
-    path('bola/',views.index,name='bola'),
-    path('ohboy/',views.ohboy,name='ohboy')
+    # path (url da view, nome da função)
+    path('base/',views.index,name='base'),
+    path('community_create/',views.community_create,name='community_create'),
+    path('<str:nome>/',views.community,name='community')
 ]
