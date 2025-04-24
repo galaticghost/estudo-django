@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from bola.forms import CommunityForm
 from bola.models import Community
 
@@ -21,6 +21,6 @@ def community_create(request):
     return render(request,"bola/community_create.html",context=context)
 
 def community(request, nome):
-    test = Community.objects.filter(nome=nome)
+    test = get_object_or_404(Community, nome=nome)
     context = {'community':test}
     return render(request,"bola/community.html",context=context)
