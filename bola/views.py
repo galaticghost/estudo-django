@@ -20,22 +20,31 @@ def community_create(request):
     context = {"form":form}
     return render(request,"bola/community_create.html",context=context)
 
-def community_edit(request):
+def community_edit(request,nome):
     if request.method == 'POST':
         form = CommunityForm(request.POST)
         if form.is_valid():
+            community = get_object_or_404(Community, nome=nome)
+            
             nome = form.cleaned_data['nome']
             sobre = form.cleaned_data['sobre']
-            
-            community = get_object_or_404(Community, nome=nome)
 
             community.nome = nome
             community.sobre = sobre
 
             community.save()
             return redirect(index)
+        
+    form = CommunityForm()
+    context = {"form":form}
+    return render(request,"bola/community_edit.html",context=context)
 
-def community(request, nome):
-    test = get_object_or_404(Community, nome=nome)
-    context = {'community':test}
+def community_view(request, nome):
+    community = get_object_or_404(Community, nome=nome)
+    context = {'community':community}
     return render(request,"bola/community.html",context=context)
+
+def community_delete(request,nome):
+    community = get_object_or_404(Community, nome=nome)
+    community.delete()
+    return redirect(index)

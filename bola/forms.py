@@ -1,6 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 from bola.models import Community
+from django.core.validators import MinLengthValidator
 
 class CommunityForm(ModelForm):
     class Meta:
@@ -9,3 +10,6 @@ class CommunityForm(ModelForm):
         widgets = {
             'sobre': forms.Textarea(),
         }
+        validators = [
+            MinLengthValidator(5)
+        ]

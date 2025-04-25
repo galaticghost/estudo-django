@@ -22,5 +22,7 @@ urlpatterns = [
     # path (url da view, nome da função)
     path('base/',views.index,name='base'),
     path('community_create/',views.community_create,name='community_create'),
-    path('<str:nome>/',views.community,name='community')
+    path('<str:nome>/',views.community_view,name='community'),
+    path('<str:nome>/edit',views.community_edit,name="community_edit"),
+    path('<str:nome>/delete',views.community_delete,name="community_delete")
 ]
