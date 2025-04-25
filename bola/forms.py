@@ -10,6 +10,3 @@ class CommunityForm(ModelForm):
         widgets = {
             'sobre': forms.Textarea(),
         }
-        validators = [
-            MinLengthValidator(5)
-        ]
