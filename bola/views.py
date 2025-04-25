@@ -34,7 +34,6 @@ def community_edit(request,nome):
 
             community.save()
             return redirect(index)
-        
     community = get_object_or_404(Community, nome=nome)
     form = CommunityForm(initial={'nome':community.nome,'sobre':community.sobre})
     context = {"form":form}
