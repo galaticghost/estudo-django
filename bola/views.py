@@ -20,7 +20,7 @@ def community_create(request):
     context = {"form":form}
     return render(request,"bola/community_create.html",context=context)
 
-def community_edit(request,nome):
+def community_edit(request,nome):    
     if request.method == 'POST':
         form = CommunityForm(request.POST)
         if form.is_valid():
@@ -35,7 +35,8 @@ def community_edit(request,nome):
             community.save()
             return redirect(index)
         
-    form = CommunityForm()
+    community = get_object_or_404(Community, nome=nome)
+    form = CommunityForm(initial={'nome':community.nome,'sobre':community.sobre})
     context = {"form":form}
     return render(request,"bola/community_edit.html",context=context)
 
