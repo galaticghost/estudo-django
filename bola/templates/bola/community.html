@@ -2,10 +2,10 @@
 <p>{{community.nome}}</p>
 <p>{{community.sobre}}</p>
 <button>
-  <a href="{% url 'community_edit' community.nome %}">Editar</a>
+  <a href="{% url 'community_edit' community.nome_tag %}">Editar</a>
 </button>
 <button>
-  <a href="{% url 'community_delete' community.nome %}">Deletar</a>
+  <a href="{% url 'community_delete' community.nome_tag %}">Deletar</a>
 </button>
 <button>
   <a href="{% url 'base' %}">Voltar</a>
