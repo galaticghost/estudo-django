@@ -41,7 +41,7 @@ def community_edit(request,nome_tag):
             return redirect(index)
     community = get_object_or_404(Community, nome_tag=nome_tag)
     form = CommunityForm(initial={'nome':community.nome,'sobre':community.sobre})
-    context = {"form":form}
+    context = {"form":form,"community":community}
     return render(request,"bola/community_edit.html",context=context)
 
 def community_view(request, nome_tag):
