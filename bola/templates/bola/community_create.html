@@ -1,16 +1,13 @@
-{% extends "bola/base.html" %}
-
-{% block content %}
-<form action="" method="post">
-    {% csrf_token %} {# Token pra evitar ataques csrf #}
-    {{ form.nome.label }}
-    {{ form.nome }}
-
-    {{ form.sobre.label }}
-    {{ form.sobre }}
+{% extends "bola/base.html" %} {% block content %}
+<div class="formulario">
+  <form action="" method="post">
+    {% csrf_token %} {# Token pra evitar ataques csrf #} 
+    <p>{{ form.nome.label }}</p>
+    <p>{{ form.nome }} </p>
+    <p>{{ form.sobre.label }} </p>
+    <p>{{ form.sobre }}</p>
     <button type="submit">submit</button>
-    <button>
-        <a href="{% url 'base' %}">Voltar</a>
-      </button>
-</form>
+    <a href="{% url 'base' %}"><button type="button">Voltar</button></a>
+  </form>
+</div>
 {% endblock %}

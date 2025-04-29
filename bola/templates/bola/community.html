@@ -1,5 +1,7 @@
 {% extends "bola/base.html" %} {% block content %}
-<p>{{community.nome}}</p>
+<div>
+<p class="nome"> {{community.nome}}</p>
+<p class="tag">@{{community.nome_tag}}</p>
 <p>{{community.sobre}}</p>
 <button>
   <a href="{% url 'community_edit' community.nome_tag %}">Editar</a>
@@ -10,4 +12,5 @@
 <button>
   <a href="{% url 'base' %}">Voltar</a>
 </button>
+</div>
 {% endblock %}

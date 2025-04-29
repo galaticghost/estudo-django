@@ -1,6 +1,14 @@
 {% extends 'bola/base.html' %} {% block content %}
 <button><a href="{% url 'community_create' %}">Criar comunidade</a></button>
+<div class="cards">
 {% for community in communities %}
-<p>{{community.nome}}</p>
+
+<div class ="card">
+
+<p class="nome">{{community.nome}}</p>
+<p class="tag">@{{community.nome_tag}}</p>
 <button><a href="/{{community.nome_tag}}">Ver</a></button>
+
+</div>
 {% endfor %} {% endblock %}
+</div>
