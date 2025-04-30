@@ -15,16 +15,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from bola import views
+from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    # path (url da view, nome da função)
-    path('',views.index,name='base'),
-    path('community_create/',views.community_create,name='community_create'),
-    path('<str:nome_tag>/',views.community_view,name='community'),
-    path('<str:nome_tag>/edit',views.community_edit,name="community_edit"),
-    path('<str:nome_tag>/delete',views.community_delete,name="community_delete")
+    path("community/",include("bola.urls"))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
